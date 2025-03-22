@@ -36,7 +36,7 @@ def generate_report():
     options.add_argument("--remote-debugging-port=9222")
 
     # Укажите путь к исполняемому файлу Chromium
-    options.binary_location = '/usr/bin/chromium-browser'  # Путь к Chromium в Render
+    options.binary_location = '/usr/bin/chromium'  # Путь к Chromium в Render
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
