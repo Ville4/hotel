@@ -246,7 +246,7 @@ def test_open_ostrovok(driver, start_date, end_date):
     next_day_for_yandex = start_date + datetime.timedelta(days=1)
     while current_date_for_yandex <= end_date:
 
-        driver.get(f'https://travel.yandex.ru/hotels/petrozavodsk/filter-4-star/?adults=2&bbox=34.23200130238226%2C61.7344387019741~34.50040476503552%2C61.842914754566046&checkinDate={current_date_for_yandex.strftime('%Y-%m-%d')}&checkoutDate={next_day_for_yandex.strftime('%Y-%m-%d')}&childrenAges=&filterAtoms=hotel_pansion_with_offerdata%3Ahotel_pansion_breakfast_included%2Cstar%3Afour&geoId=18&lastSearchTimeMarker=1741343363529&navigationToken=0&oneNightChecked=false&searchPagePollingId=4a3dd154e29adaa14f09570fbe1e2921-0-newsearch&selectedSortId=relevant-first')
+        driver.get(f"https://travel.yandex.ru/hotels/petrozavodsk/filter-4-star/?adults=2&bbox=34.23200130238226%2C61.7344387019741~34.50040476503552%2C61.842914754566046&checkinDate={current_date_for_yandex.strftime('%Y-%m-%d')}&checkoutDate={next_day_for_yandex.strftime('%Y-%m-%d')}&childrenAges=&filterAtoms=hotel_pansion_with_offerdata%3Ahotel_pansion_breakfast_included%2Cstar%3Afour&geoId=18&lastSearchTimeMarker=1741343363529&navigationToken=0&oneNightChecked=false&searchPagePollingId=4a3dd154e29adaa14f09570fbe1e2921-0-newsearch&selectedSortId=relevant-first")
         wait.until(
             EC.element_to_be_clickable((By.XPATH, "//div[@class='CWzx3']"))
         )
