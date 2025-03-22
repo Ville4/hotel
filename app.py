@@ -6,7 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import pytest
-from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
 
 app = Flask(__name__)
 
@@ -27,7 +28,17 @@ def generate_report():
         return "Некорректный формат дат"
 
     # Запускаем браузер через selenium
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")  # Запуск в headless-режиме
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--remote-debugging-port=9222")
+
+    # Укажите путь к исполняемому файлу Chromium
+    options.binary_location = '/usr/bin/chromium-browser'  # Путь к Chromium в Render
+
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
     # Запускаем твой парсинг-скрипт и генерируем результат
     data = test_open_ostrovok(driver, start_date, end_date)
