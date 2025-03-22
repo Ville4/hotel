@@ -1,1 +1,0 @@
-#!/bin/bash# Устанавливаем Chromiumapt-get updateapt-get install -y chromium-browser# Запускаем ваше приложениеpython app.py
