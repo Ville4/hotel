@@ -7,8 +7,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# Скачиваем и устанавливаем совместимую версию ChromeDriver
-RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip -O /tmp/chromedriver.zip \
+# Скачиваем и устанавливаем совместимую версию ChromeDriver для версии Chromium 134
+RUN wget https://chromedriver.storage.googleapis.com/134.0.5735.90/chromedriver_linux64.zip -O /tmp/chromedriver.zip \
     && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
     && rm /tmp/chromedriver.zip
 
