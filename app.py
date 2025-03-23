@@ -38,7 +38,7 @@ def generate_report():
     # Укажите путь к исполняемому файлу Chromium
     options.binary_location = '/usr/bin/chromium'  # Путь к Chromium в Render
 
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager(version="114.0.5735.90").install()), options=options)
 
     # Запускаем твой парсинг-скрипт и генерируем результат
     data = test_open_ostrovok(driver, start_date, end_date)
