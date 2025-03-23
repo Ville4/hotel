@@ -439,6 +439,3 @@ def test_open_ostrovok(driver, start_date, end_date):
     pivot_table.to_excel(excel_path, sheet_name='Цены', engine='openpyxl')
 
 
-
-
-
