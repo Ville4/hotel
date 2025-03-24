@@ -8,17 +8,17 @@ import pandas as pd
 import time
 
 
-hotels = ['Отель Карелия', 'Отель Фрегат', 'Piter Inn', 'Гостиница Северная', 'Гостиница Cosmos']
-dates = []
-prices = {
-    'Отель Карелия': {'ostrovok': [], 'yandex': []},
-    'Отель Фрегат': {'ostrovok': [], 'yandex': []},
-    'Piter Inn': {'ostrovok': [], 'yandex': []},
-    'Гостиница Северная': {'ostrovok': [], 'yandex': []},
-    'Гостиница Cosmos': {'ostrovok': [], 'yandex': []}
-}
-
-sources = ['ostrovok', 'yandex']
+# hotels = ['Отель Карелия', 'Отель Фрегат', 'Piter Inn', 'Гостиница Северная', 'Гостиница Cosmos']
+# dates = []
+# prices = {
+#     'Отель Карелия': {'ostrovok': [], 'yandex': []},
+#     'Отель Фрегат': {'ostrovok': [], 'yandex': []},
+#     'Piter Inn': {'ostrovok': [], 'yandex': []},
+#     'Гостиница Северная': {'ostrovok': [], 'yandex': []},
+#     'Гостиница Cosmos': {'ostrovok': [], 'yandex': []}
+# }
+#
+# sources = ['ostrovok', 'yandex']
 
 def test_open_ostrovok(driver, start_date, end_date):
 
