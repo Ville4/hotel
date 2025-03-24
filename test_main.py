@@ -8,21 +8,8 @@ import pandas as pd
 import time
 
 
-# hotels = ['Отель Карелия', 'Отель Фрегат', 'Piter Inn', 'Гостиница Северная', 'Гостиница Cosmos']
-# dates = []
-# prices = {
-#     'Отель Карелия': {'ostrovok': [], 'yandex': []},
-#     'Отель Фрегат': {'ostrovok': [], 'yandex': []},
-#     'Piter Inn': {'ostrovok': [], 'yandex': []},
-#     'Гостиница Северная': {'ostrovok': [], 'yandex': []},
-#     'Гостиница Cosmos': {'ostrovok': [], 'yandex': []}
-# }
-#
-# sources = ['ostrovok', 'yandex']
-
 def test_open_ostrovok(driver, start_date, end_date):
 
-    # driver = webdriver.Chrome()
     driver.maximize_window()
 
     wait = WebDriverWait(driver, 4)
@@ -46,9 +33,9 @@ def test_open_ostrovok(driver, start_date, end_date):
     while current_date <= end_date:
 
         driver.get(f"https://ostrovok.ru/hotel/russia/petrozavodsk/?q=2768&dates={current_date.strftime('%d.%m.%Y')}-{next_day.strftime('%d.%m.%Y')}&guests=2&meal_types=breakfast&price=one&stars=4")
-        wait.until(
-            EC.element_to_be_clickable((By.XPATH, "//div[@class='zen-hotels-main']"))
-        )
+        # wait.until(
+        #     EC.element_to_be_clickable((By.XPATH, "//div[@class='zen-hotels-main']"))
+        # )
 
 
         karelia_price = None
@@ -68,18 +55,6 @@ def test_open_ostrovok(driver, start_date, end_date):
             except:
                 print("Элемент не найден по обоим путям.")
 
-
-        # # Цены по отелю Карелия //a[contains(text(), 'Карелия')]//ancestor::div[contains(@class, 'zen-hotelcard-wide')]//div[@class='zen-hotelcard-rate-price-value']//span or //a[contains(text(), 'Карелия')]//ancestor::div[contains(@class, 'HotelCard-module__container--2hORD')]//span[@class='HotelCard-module__ratePriceValue--2dXPQ']
-        # wait.until(
-        #     EC.element_to_be_clickable(
-        #         (By.XPATH, "//a[contains(text(), 'Карелия')]//ancestor::div[contains(@class, 'HotelCard-module__container--2hORD')]//span[@class='HotelCard-module__ratePriceValue--2dXPQ']")
-        #         or
-        #         (By.XPATH, "//a[contains(text(), 'Карелия')]//ancestor::div[contains(@class, 'zen-hotelcard-wide')]//div[@class='zen-hotelcard-rate-price-value']//span")
-        #     )
-        # )
-
-        # karelia_price = driver.find_element(By.XPATH, "//a[contains(text(), 'Карелия')]//ancestor::div[contains(@class, 'HotelCard-module__container--2hORD')]//span[@class='HotelCard-module__ratePriceValue--2dXPQ']")
-
         if karelia_price == None:
             prices['Отель Карелия']['ostrovok'].append(karelia_price)
         else:
@@ -90,11 +65,6 @@ def test_open_ostrovok(driver, start_date, end_date):
             prices['Отель Карелия']['ostrovok'].append(int_karelia_price_value_for_append)
 
         # # Цены по отелю Фрегат
-        # wait.until(
-        #     EC.element_to_be_clickable(
-        #         (By.XPATH, "//a[contains(text(), 'Фрегат')]//ancestor::div[contains(@class, 'HotelCard-module__container--2hORD')]//span[@class='HotelCard-module__ratePriceValue--2dXPQ']")
-        #     )
-        # )
 
         fregat_price = None
         try:
@@ -126,11 +96,6 @@ def test_open_ostrovok(driver, start_date, end_date):
             prices['Отель Фрегат']['ostrovok'].append(int_fregat_price_value_for_append)
 
         # # Цены по отелю piter inn
-        # wait.until(
-        #     EC.element_to_be_clickable(
-        #         (By.XPATH, "//a[contains(text(), 'Piter')]//ancestor::div[contains(@class, 'HotelCard-module__container--2hORD')]//span[@class='HotelCard-module__ratePriceValue--2dXPQ']")
-        #     )
-        # )
 
         piter_inn_price = None
         try:
@@ -161,11 +126,6 @@ def test_open_ostrovok(driver, start_date, end_date):
             prices['Piter Inn']['ostrovok'].append(int_piter_inn_price_value_for_append)
 
         # # Цены по отелю Северная
-        # wait.until(
-        #     EC.element_to_be_clickable(
-        #         (By.XPATH, "//a[contains(text(), 'Северная')]//ancestor::div[contains(@class, 'HotelCard-module__container--2hORD')]//span[@class='HotelCard-module__ratePriceValue--2dXPQ']")
-        #     )
-        # )
 
         severnaya_price = None
         try:
@@ -196,12 +156,6 @@ def test_open_ostrovok(driver, start_date, end_date):
             int_severnaya_price_value_for_append = int(severnaya_price_value_for_append.replace(' ', ''))
             prices['Гостиница Северная']['ostrovok'].append(int_severnaya_price_value_for_append)
 
-        # # Цены по отелю Cosmos
-        # wait.until(
-        #     EC.element_to_be_clickable(
-        #         (By.XPATH, "//a[contains(text(), 'Cosmos')]//ancestor::div[contains(@class, 'HotelCard-module__container--2hORD')]//span[@class='HotelCard-module__ratePriceValue--2dXPQ']")
-        #     )
-        # )
 
         cosmos_price = None
         try:
