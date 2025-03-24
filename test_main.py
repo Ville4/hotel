@@ -25,7 +25,7 @@ def test_open_ostrovok(driver, start_date, end_date):
     # driver = webdriver.Chrome()
     driver.maximize_window()
 
-    wait = WebDriverWait(driver, 8)
+    wait = WebDriverWait(driver, 4)
 
 
     hotels = ['Отель Карелия', 'Отель Фрегат', 'Piter Inn', 'Гостиница Северная', 'Гостиница Cosmos']
