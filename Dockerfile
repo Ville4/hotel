@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y \
 
 # Скачиваем и устанавливаем совместимую версию ChromeDriver для версии 114
 RUN wget https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/linux64/chromedriver-linux64.zip -O /tmp/chromedriver.zip \
-
     && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
     && rm /tmp/chromedriver.zip
 
