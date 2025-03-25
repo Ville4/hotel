@@ -328,7 +328,7 @@ def test_open_ostrovok(driver, start_date, end_date):
 
     excluded_hotels = ['Отель Карелия']  # Исключенные отели для нахождения среднего и процентного соотношения
     target_hotel = 'Отель Карелия'  # Название отеля для определения места
-    excel_path = 'C:\\Users\\Вилле\\Desktop\\hotel_ex\\отели.xlsx'
+    excel_path = 'отели.xlsx'
 
     # Названия столбцов
     date_col = 'Дата'
